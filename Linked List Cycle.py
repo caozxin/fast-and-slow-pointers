@@ -11,16 +11,23 @@ class Solution:
         #[3,2,0,-4] pos = 1
         # return False
 
-        if head and head.next is None: # we only return False when the head.val is not None but head.next is None
+        # Edge case: if head is None or there's only one node
+        if head is None or  head.next is None: # we only return False when the head.val is not None but head.next is None
             # fast = head.next.next
             # print(fast.val)
             return False
         
-        slow, fast = head, head.next.next
-
-        while fast != slow and fast.next:
+        # Initialize two pointers both to head
+        slow, fast = head, head
+        
+        # Loop until the fast pointer reaches the end of the list or pointers meet
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            # print(slow.val, fast.val)
-            #exit()
-        return fast.next is not None  # return True for cycle if fast.next is not None. Otherwise fast finishes all of its moves and no cycle
+            
+            # If the two pointers meet, there is a cycle
+            if slow == fast:
+                return True
+        
+        # If we exit the loop, there is no cycle
+        return False
