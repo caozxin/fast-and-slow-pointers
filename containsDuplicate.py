@@ -4,24 +4,14 @@ class Solution:
         if not nums:
             return 
 
-        slow, fast = 0, 0
+        new_set = set()
 
-        for slow in range(len(nums)):
+        for each in nums:
+            new_set.add(each)
 
-            # fast = slow + 1
-            # print(slow, fast)
+        print(len(new_set))
 
-            while fast < len(nums):
-
-                fast += 1
-                # print("fast", fast)
-
-                if fast > len(nums) - 1: #hard enforcement
-                    break
-                if nums[fast] == nums[slow] and fast != slow:
-                    # print("slow, fast", slow, fast)
-                    return True
-            fast = slow + 1
-
-
-        return False
+        if len(new_set) != len(nums):
+            return True
+        else:
+            return False
