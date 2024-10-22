@@ -11,11 +11,11 @@ class Solution:
             if slow == fast:        # Cycle detected
                 break
         
-#         # Phase 2: Find the entrance to the cycle (duplicate number)
-#         slow = nums[0]              # Reset slow pointer to the start
-#         while slow != fast:          # Move both pointers one step at a time
-#             slow = nums[slow]
-#             fast = nums[fast]
+        # Phase 2: Find the entrance to the cycle (duplicate number)
+        slow = nums[0]              # Reset slow pointer to the start
+        while slow != fast:          # Move both pointers one step at a time
+            slow = nums[slow]
+            fast = nums[fast]
         
-#         return slow  # Slow and fast meet at the duplicate number
+        return slow  # Slow and fast meet at the duplicate number
 
