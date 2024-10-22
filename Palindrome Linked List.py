@@ -51,7 +51,7 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
 
-        # Step 2: Reverse the second half of the list
+        # Step 2: Reverse the second half of the list, by using dummy node.
         prev = None
         while slow:
             next_node = slow.next
